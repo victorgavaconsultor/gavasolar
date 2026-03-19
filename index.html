@@ -9,7 +9,7 @@
 <style>
 :root {
   --gold: #C9960C;
-  --gold-light: #F5C200;
+  --gold-light: #F5A800;
   --gold-pale: #FDF6E3;
   --black: #111111;
   --gray-dark: #333333;
@@ -20,600 +20,203 @@
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Outfit', sans-serif;
-  color: var(--black);
-  background: var(--white);
-  overflow-x: hidden;
-}
-
-/* ── TYPOGRAPHY ── */
+body { font-family: 'Outfit', sans-serif; color: var(--black); background: var(--white); overflow-x: hidden; }
 h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.1; }
 
-/* ── NAV ── */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 6vw;
-  height: 72px;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(201,150,12,0.15);
+  padding: 0 6vw; height: 72px;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,150,12,0.12);
 }
-
-.nav-logo {
-  display: flex; align-items: center; gap: 10px;
-  text-decoration: none;
-}
-
-.nav-logo svg { width: 38px; height: 38px; }
-
-.nav-logo-text {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--black);
-}
-
-.nav-logo-text span { color: var(--gold); }
-
-.nav-links {
-  display: flex; align-items: center; gap: 36px;
-  list-style: none;
-}
-
+.nav-logo { display: flex; align-items: center; text-decoration: none; }
+.nav-logo svg { height: 48px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
 .nav-links a {
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gray-mid);
-  transition: color 0.2s;
+  text-decoration: none; font-size: 13px; font-weight: 500;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--gray-mid); transition: color 0.2s;
 }
-
 .nav-links a:hover { color: var(--gold); }
+.nav-cta { background: var(--gold-light) !important; color: var(--black) !important; padding: 10px 24px; border-radius: var(--radius); font-weight: 600 !important; }
+.nav-cta:hover { opacity: 0.85 !important; }
 
-.nav-cta {
-  background: var(--gold);
-  color: var(--white) !important;
-  padding: 10px 24px;
-  border-radius: var(--radius);
-  font-weight: 600 !important;
-  color: var(--black) !important;
-  transition: background 0.2s !important;
-}
-
-.nav-cta:hover { background: var(--gold-light) !important; color: var(--black) !important; }
-
-/* ── HERO ── */
+/* HERO */
 #hero {
-  min-height: 100vh;
-  display: flex; align-items: center;
-  padding: 72px 6vw 0;
-  position: relative;
-  overflow: hidden;
-  background: var(--white);
+  min-height: 100vh; display: flex; align-items: center;
+  padding: 72px 6vw 0; position: relative; overflow: hidden;
 }
-
-.hero-content {
-  max-width: 580px;
-  position: relative; z-index: 2;
-  animation: fadeUp 0.8s ease both;
-}
-
+.hero-content { max-width: 580px; position: relative; z-index: 2; animation: fadeUp 0.8s ease both; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 11px; font-weight: 600; letter-spacing: 3px;
-  text-transform: uppercase; color: var(--gold);
-  margin-bottom: 24px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 24px;
 }
-
-.hero-eyebrow::before {
-  content: '';
-  display: block; width: 28px; height: 1px;
-  background: var(--gold);
-}
-
-.hero-title {
-  font-size: clamp(44px, 6vw, 80px);
-  font-weight: 900;
-  line-height: 1.0;
-  color: var(--black);
-  margin-bottom: 24px;
-}
-
-.hero-title em {
-  font-style: normal;
-  color: var(--gold);
-}
-
-.hero-sub {
-  font-size: 17px; font-weight: 300; color: var(--gray-mid);
-  line-height: 1.7; max-width: 440px;
-  margin-bottom: 40px;
-}
-
-.hero-actions {
-  display: flex; align-items: center; gap: 20px;
-  flex-wrap: wrap;
-}
+.hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+.hero-title { font-size: clamp(44px,6vw,80px); font-weight: 900; line-height: 1.0; color: var(--black); margin-bottom: 24px; }
+.hero-title em { font-style: normal; color: var(--gold-light); }
+.hero-sub { font-size: 17px; font-weight: 300; color: var(--gray-mid); line-height: 1.7; max-width: 440px; margin-bottom: 40px; }
+.hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--gold);
-  color: var(--black);
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px; font-weight: 600;
-  letter-spacing: 0.5px;
-  padding: 16px 32px;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-  border: none; cursor: pointer;
+  background: var(--gold-light); color: var(--black);
+  font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600;
+  letter-spacing: 0.5px; padding: 16px 32px; border-radius: var(--radius);
+  text-decoration: none; transition: opacity 0.2s, transform 0.2s; border: none; cursor: pointer;
 }
-
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
 .btn-secondary {
   display: inline-flex; align-items: center; gap: 8px;
-  background: transparent;
-  color: var(--black);
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px; font-weight: 500;
-  padding: 16px 0;
-  text-decoration: none;
-  border-bottom: 1px solid var(--black);
-  transition: color 0.2s, border-color 0.2s;
+  background: transparent; color: var(--black);
+  font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500;
+  padding: 16px 0; text-decoration: none;
+  border-bottom: 1px solid var(--black); transition: color 0.2s, border-color 0.2s;
 }
-
 .btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
 
-.hero-stats {
-  display: flex; gap: 48px;
-  margin-top: 64px; padding-top: 40px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
+.hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(0,0,0,0.08); }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--black); line-height: 1; display: block; }
+.stat-num span { color: var(--gold-light); }
+.stat-label { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-mid); margin-top: 4px; display: block; }
 
-.stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 36px; font-weight: 700;
-  color: var(--black); line-height: 1;
-  display: block;
-}
-
-.stat-num span { color: var(--gold); }
-
-.stat-label {
-  font-size: 11px; font-weight: 500;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--gray-mid); margin-top: 4px;
-  display: block;
-}
-
-.hero-visual {
-  position: absolute; right: 0; top: 0; bottom: 0;
-  width: 48%;
-  overflow: hidden;
-}
-
+.hero-visual { position: absolute; right: 0; top: 0; bottom: 0; width: 46%; overflow: hidden; }
 .hero-visual::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(90deg, var(--white) 0%, transparent 30%);
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, var(--white) 0%, transparent 35%);
 }
-
 .hero-visual-inner {
   width: 100%; height: 100%;
-  background:
-    linear-gradient(135deg, #FDF6E3 0%, #FFF9EC 40%, #F5F0E0 100%);
-  display: flex; align-items: center; justify-content: center;
-  position: relative;
+  background: linear-gradient(135deg, #FFFBEF 0%, #FFF5D6 50%, #FDF0C0 100%);
+  display: flex; align-items: center; justify-content: center; position: relative;
 }
-
-/* Decorative sun graphic */
-.sun-graphic {
-  width: 420px; height: 420px;
-  position: relative;
-  opacity: 0.18;
-}
-
-.sun-graphic svg { width: 100%; height: 100%; }
-
+.hero-logo-bg { width: 320px; height: 320px; opacity: 0.13; }
 .hero-badge {
   position: absolute; bottom: 60px; right: 60px; z-index: 2;
-  background: var(--white);
-  border: 1px solid rgba(201,150,12,0.3);
-  border-radius: 12px;
-  padding: 20px 24px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-  text-align: center;
+  background: var(--white); border: 1px solid rgba(245,168,0,0.3);
+  border-radius: 12px; padding: 20px 24px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.07); text-align: center;
   animation: fadeUp 1s 0.4s ease both;
 }
+.hero-badge-num { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--gold-light); display: block; line-height: 1; }
+.hero-badge-txt { font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-mid); display: block; margin-top: 4px; }
 
-.hero-badge-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px; font-weight: 700;
-  color: var(--gold); display: block; line-height: 1;
-}
-
-.hero-badge-txt {
-  font-size: 11px; font-weight: 500;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--gray-mid); display: block; margin-top: 4px;
-}
-
-/* ── SECTION BASE ── */
+/* SECTIONS */
 section { padding: 100px 6vw; }
-
 .section-label {
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 16px;
-  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
 }
+.section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+.section-title { font-size: clamp(32px,4vw,52px); font-weight: 700; color: var(--black); line-height: 1.1; margin-bottom: 16px; }
+.section-sub { font-size: 16px; color: var(--gray-mid); font-weight: 300; line-height: 1.7; max-width: 480px; }
 
-.section-label::before {
-  content: ''; display: block;
-  width: 20px; height: 1px; background: var(--gold);
-}
-
-.section-title {
-  font-size: clamp(32px, 4vw, 52px);
-  font-weight: 700; color: var(--black);
-  line-height: 1.1; margin-bottom: 16px;
-}
-
-.section-sub {
-  font-size: 16px; color: var(--gray-mid);
-  font-weight: 300; line-height: 1.7;
-  max-width: 480px;
-}
-
-/* ── SERVICES ── */
+/* SERVICES */
 #servicos { background: var(--gray-light); }
-
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 60px;
-  border: 2px solid rgba(201,150,12,0.15);
-  border-radius: 8px;
-  overflow: hidden;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 60px;
+  border: 1px solid rgba(201,150,12,0.12); border-radius: 8px; overflow: hidden;
 }
-
-.service-card {
-  background: var(--white);
-  padding: 48px 36px;
-  position: relative;
-  transition: background 0.3s;
-}
-
+.service-card { background: var(--white); padding: 44px 32px; position: relative; transition: background 0.25s; }
 .service-card:hover { background: var(--gold-pale); }
+.service-icon { width: 40px; height: 40px; margin-bottom: 22px; color: var(--gold-light); }
+.service-icon svg { width: 100%; height: 100%; }
+.service-num { position: absolute; top: 20px; right: 24px; font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; color: rgba(245,168,0,0.07); line-height: 1; }
+.service-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 10px; color: var(--black); }
+.service-desc { font-size: 14px; color: var(--gray-mid); line-height: 1.7; font-weight: 300; }
 
-.service-icon {
-  width: 48px; height: 48px;
-  background: var(--gold-pale);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 28px;
-  font-size: 22px;
-}
-
-.service-num {
-  position: absolute; top: 24px; right: 28px;
-  font-family: 'Playfair Display', serif;
-  font-size: 48px; font-weight: 700;
-  color: rgba(201,150,12,0.08);
-  line-height: 1;
-}
-
-.service-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px; font-weight: 700;
-  margin-bottom: 12px; color: var(--black);
-}
-
-.service-desc {
-  font-size: 14px; color: var(--gray-mid);
-  line-height: 1.7; font-weight: 300;
-}
-
-/* ── SIMULADOR ── */
+/* SIMULADOR */
 #simulador { background: var(--black); }
-
 #simulador .section-title { color: var(--white); }
-#simulador .section-sub { color: rgba(255,255,255,0.5); }
+#simulador .section-sub { color: rgba(255,255,255,0.45); }
 #simulador .section-label { color: var(--gold-light); }
 #simulador .section-label::before { background: var(--gold-light); }
-
-.simulator-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  margin-top: 60px;
-  align-items: start;
-}
-
-.simulator-form {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  padding: 40px;
-}
-
-.form-group { margin-bottom: 28px; }
-
-.form-label {
-  display: block;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 10px;
-}
-
+.simulator-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; align-items: start; }
+.simulator-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 8px; padding: 40px; }
+.form-group { margin-bottom: 24px; }
+.form-label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 10px; }
 .form-input {
-  width: 100%;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius);
-  color: var(--white);
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px; font-weight: 400;
-  padding: 14px 18px;
-  outline: none;
-  transition: border-color 0.2s;
+  width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius); color: var(--white); font-family: 'Outfit', sans-serif;
+  font-size: 16px; padding: 13px 16px; outline: none; transition: border-color 0.2s;
 }
-
-.form-input:focus { border-color: var(--gold); }
-
+.form-input:focus { border-color: var(--gold-light); }
 .form-select {
-  width: 100%;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius);
-  color: var(--white);
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  padding: 14px 18px;
-  outline: none;
-  cursor: pointer;
-  appearance: none;
+  width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--radius); color: var(--white); font-family: 'Outfit', sans-serif;
+  font-size: 16px; padding: 13px 16px; outline: none; cursor: pointer; appearance: none;
 }
-
-.form-select option { background: #222; }
-
-.simulator-result {
-  display: flex; flex-direction: column; gap: 24px;
-}
-
-.result-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  padding: 32px;
-  transition: border-color 0.3s;
-}
-
-.result-card.highlight {
-  border-color: var(--gold);
-  background: rgba(201,150,12,0.08);
-}
-
-.result-label {
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 8px;
-}
-
-.result-value {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px; font-weight: 700;
-  color: var(--white); line-height: 1;
-}
-
+.form-select option { background: #1a1a1a; }
+.simulator-result { display: flex; flex-direction: column; gap: 16px; }
+.result-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 28px; }
+.result-card.highlight { border-color: var(--gold-light); background: rgba(245,168,0,0.07); }
+.result-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 8px; }
+.result-value { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--white); line-height: 1; }
 .result-value.gold { color: var(--gold-light); }
+.result-sub { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 5px; }
+.result-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-.result-sub {
-  font-size: 13px; color: rgba(255,255,255,0.4);
-  margin-top: 6px;
-}
-
-.result-row {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-/* ── DEPOIMENTOS ── */
+/* DEPOIMENTOS */
 #depoimentos { background: var(--white); }
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 60px;
-}
-
-.testimonial-card {
-  background: var(--gray-light);
-  border-radius: 8px;
-  padding: 36px;
-  position: relative;
-}
-
-.testimonial-quote {
-  font-size: 48px; line-height: 1;
-  font-family: 'Playfair Display', serif;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-
-.testimonial-text {
-  font-size: 15px; color: var(--gray-dark);
-  line-height: 1.7; font-weight: 300;
-  margin-bottom: 28px;
-}
-
-.testimonial-author {
-  display: flex; align-items: center; gap: 14px;
-}
-
+.testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 60px; }
+.testimonial-card { background: var(--gray-light); border-radius: 8px; padding: 36px; }
+.testimonial-quote { font-family: 'Playfair Display', serif; font-size: 44px; color: var(--gold-light); line-height: 1; margin-bottom: 12px; }
+.testimonial-text { font-size: 15px; color: var(--gray-dark); line-height: 1.7; font-weight: 300; margin-bottom: 28px; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
 .author-avatar {
-  width: 44px; height: 44px;
-  border-radius: 50%;
+  width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700; font-size: 18px;
-  color: var(--white);
-  flex-shrink: 0;
+  font-family: 'Playfair Display', serif; font-weight: 700; font-size: 18px; color: var(--white);
 }
+.author-name { font-weight: 600; font-size: 14px; color: var(--black); display: block; }
+.author-city { font-size: 12px; color: var(--gray-mid); display: block; margin-top: 2px; }
+.stars { color: var(--gold-light); font-size: 13px; margin-bottom: 14px; letter-spacing: 2px; }
 
-.author-name {
-  font-weight: 600; font-size: 14px; color: var(--black);
-  display: block;
-}
-
-.author-city {
-  font-size: 12px; color: var(--gray-mid);
-  display: block; margin-top: 2px;
-}
-
-.stars { color: var(--gold); font-size: 13px; margin-bottom: 16px; }
-
-/* ── CONTATO ── */
+/* CONTATO */
 #contato { background: var(--gold-pale); }
-
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-top: 0;
-}
-
-.contact-info { }
-
-.contact-item {
-  display: flex; align-items: flex-start; gap: 16px;
-  margin-bottom: 32px;
-}
-
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.contact-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
 .contact-icon {
-  width: 44px; height: 44px;
-  background: var(--gold);
-  border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 18px; flex-shrink: 0;
+  width: 40px; height: 40px; background: var(--gold-light); border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--black);
 }
-
-.contact-item-label {
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--gray-mid); display: block; margin-bottom: 4px;
-}
-
-.contact-item-value {
-  font-size: 18px; font-weight: 600; color: var(--black);
-  display: block;
-}
-
+.contact-icon svg { width: 18px; height: 18px; }
+.contact-item-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-mid); display: block; margin-bottom: 3px; }
+.contact-item-value { font-size: 18px; font-weight: 600; color: var(--black); display: block; }
 .whatsapp-btn {
   display: inline-flex; align-items: center; gap: 12px;
-  background: #25D366;
-  color: var(--white);
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px; font-weight: 600;
-  padding: 18px 36px;
-  border-radius: var(--radius);
-  text-decoration: none;
-  margin-top: 8px;
-  transition: opacity 0.2s, transform 0.2s;
+  background: #22C55E; color: var(--white);
+  font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 600;
+  padding: 16px 32px; border-radius: var(--radius); text-decoration: none;
+  margin-top: 8px; transition: opacity 0.2s, transform 0.2s;
 }
-
 .whatsapp-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-
-.contact-form {
-  background: var(--white);
-  border-radius: 8px;
-  padding: 48px;
-  box-shadow: 0 4px 40px rgba(0,0,0,0.06);
-}
-
+.contact-form { background: var(--white); border-radius: 8px; padding: 48px; box-shadow: 0 4px 40px rgba(0,0,0,0.05); }
 .contact-form .form-label { color: var(--gray-mid); }
-.contact-form .form-input {
-  background: var(--gray-light);
-  border-color: transparent;
-  color: var(--black);
-}
-.contact-form .form-input:focus { border-color: var(--gold); }
+.contact-form .form-input { background: var(--gray-light); border-color: transparent; color: var(--black); }
+.contact-form .form-input:focus { border-color: var(--gold-light); }
 .contact-form .form-input::placeholder { color: #bbb; }
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer {
-  background: var(--black);
-  padding: 60px 6vw;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 24px;
+  background: var(--black); padding: 56px 6vw;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;
 }
+.footer-logo svg { height: 44px; width: auto; }
+.footer-text { font-size: 12px; color: rgba(255,255,255,0.28); text-align: center; line-height: 1.8; }
+.footer-links { display: flex; gap: 28px; list-style: none; }
+.footer-links a { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold-light); }
 
-.footer-logo {
-  display: flex; align-items: center; gap: 10px;
-}
+.gold-line { height: 1px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent); }
 
-.footer-logo-text {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600; font-size: 15px;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--white);
-}
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity:0; transform:translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
 
-.footer-logo-text span { color: var(--gold); }
-
-.footer-text {
-  font-size: 13px; color: rgba(255,255,255,0.3);
-  text-align: center;
-}
-
-.footer-links {
-  display: flex; gap: 28px; list-style: none;
-}
-
-.footer-links a {
-  font-size: 12px; letter-spacing: 1px;
-  text-transform: uppercase; color: rgba(255,255,255,0.4);
-  text-decoration: none; transition: color 0.2s;
-}
-
-.footer-links a:hover { color: var(--gold); }
-
-/* ── GOLD DIVIDER ── */
-.gold-line {
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  margin: 0;
-}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0; transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ── MOBILE ── */
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .hero-visual { display: none; }
@@ -632,19 +235,31 @@ footer {
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="19" cy="19" r="7" fill="#C9960C"/>
-      <circle cx="19" cy="19" r="4.5" fill="#F5C200"/>
-      <line x1="19" y1="2" x2="19" y2="8" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="19" y1="30" x2="19" y2="36" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="2" y1="19" x2="8" y2="19" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="30" y1="19" x2="36" y2="19" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="6.5" y1="6.5" x2="10.8" y2="10.8" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="27.2" y1="27.2" x2="31.5" y2="31.5" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="31.5" y1="6.5" x2="27.2" y2="10.8" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="10.8" y1="27.2" x2="6.5" y2="31.5" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
+    <svg viewBox="0 0 600 760" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(300,270)">
+        <polygon points="0,-95 -14,-158 14,-158" fill="#F5A800"/>
+        <polygon points="36.5,-87 51,-150 79,-133" fill="#F5A800"/>
+        <polygon points="67,-67 107,-111 124,-82" fill="#F5A800"/>
+        <polygon points="87,-36.5 130,-51 151,-25" fill="#F5A800"/>
+        <polygon points="95,0 158,-14 158,14" fill="#F5A800"/>
+        <polygon points="87,36.5 130,51 151,25" fill="#F5A800"/>
+        <polygon points="67,67 107,111 124,82" fill="#F5A800"/>
+        <polygon points="36.5,87 51,150 79,133" fill="#F5A800"/>
+        <polygon points="0,95 -14,158 14,158" fill="#F5A800"/>
+        <polygon points="-36.5,87 -51,150 -79,133" fill="#F5A800"/>
+        <polygon points="-67,67 -107,111 -124,82" fill="#F5A800"/>
+        <polygon points="-87,36.5 -130,51 -151,25" fill="#F5A800"/>
+        <polygon points="-95,0 -158,-14 -158,14" fill="#F5A800"/>
+        <polygon points="-87,-36.5 -130,-51 -151,-25" fill="#F5A800"/>
+        <polygon points="-67,-67 -107,-111 -124,-82" fill="#F5A800"/>
+        <polygon points="-36.5,-87 -51,-150 -79,-133" fill="#F5A800"/>
+        <circle cx="0" cy="0" r="78" fill="#F5A800"/>
+        <circle cx="0" cy="0" r="56" fill="#ffffff"/>
+        <circle cx="0" cy="0" r="30" fill="#F5A800"/>
+      </g>
+      <text x="300" y="524" text-anchor="middle" font-family="Georgia,serif" font-size="74" font-weight="700" letter-spacing="10" fill="#1a1206">GAVA</text>
+      <text x="300" y="580" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="400" letter-spacing="22" fill="#F5A800">SOLAR</text>
     </svg>
-    <div class="nav-logo-text">GAVA <span>SOLAR</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#servicos">Serviços</a></li>
@@ -657,53 +272,44 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
-    <div class="hero-eyebrow">Energia Limpa & Sustentável</div>
-    <h1 class="hero-title">
-      Energia solar<br>que <em>transforma</em><br>sua vida
-    </h1>
-    <p class="hero-sub">
-      Instalação profissional com equipamentos de alta performance. Reduza até 90% da sua conta de luz desde o primeiro mês.
-    </p>
+    <div class="hero-eyebrow">Energia Limpa &amp; Sustentável</div>
+    <h1 class="hero-title">Energia solar<br>que <em>transforma</em><br>sua vida</h1>
+    <p class="hero-sub">Instalação profissional com equipamentos de alta performance. Reduza até 90% da sua conta de luz desde o primeiro mês.</p>
     <div class="hero-actions">
-      <a href="https://wa.me/5516992080152" target="_blank" class="btn-primary">
-        ☀ Solicitar Orçamento
-      </a>
-      <a href="#simulador" class="btn-secondary">
-        Simular economia →
-      </a>
+      <a href="https://wa.me/5516992080152" target="_blank" class="btn-primary">Solicitar Orçamento</a>
+      <a href="#simulador" class="btn-secondary">Simular economia →</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <span class="stat-num">90<span>%</span></span>
-        <span class="stat-label">de redução na conta</span>
-      </div>
-      <div>
-        <span class="stat-num">25<span>+</span></span>
-        <span class="stat-label">projetos instalados</span>
-      </div>
-      <div>
-        <span class="stat-num">5<span>★</span></span>
-        <span class="stat-label">avaliação dos clientes</span>
-      </div>
+      <div><span class="stat-num">90<span>%</span></span><span class="stat-label">de redução na conta</span></div>
+      <div><span class="stat-num">25<span>+</span></span><span class="stat-label">projetos instalados</span></div>
+      <div><span class="stat-num">5<span>★</span></span><span class="stat-label">avaliação dos clientes</span></div>
     </div>
   </div>
-
   <div class="hero-visual">
     <div class="hero-visual-inner">
-      <div class="sun-graphic">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="200" cy="200" r="120" fill="#C9960C"/>
-          <circle cx="200" cy="200" r="80" fill="#F5C200"/>
-          <circle cx="200" cy="200" r="50" fill="#C9960C"/>
-          <!-- rays -->
-          <line x1="200" y1="20" x2="200" y2="70" stroke="#C9960C" stroke-width="8" stroke-linecap="round"/>
-          <line x1="200" y1="330" x2="200" y2="380" stroke="#C9960C" stroke-width="8" stroke-linecap="round"/>
-          <line x1="20" y1="200" x2="70" y2="200" stroke="#C9960C" stroke-width="8" stroke-linecap="round"/>
-          <line x1="330" y1="200" x2="380" y2="200" stroke="#C9960C" stroke-width="8" stroke-linecap="round"/>
-          <line x1="59" y1="59" x2="94" y2="94" stroke="#C9960C" stroke-width="8" stroke-linecap="round"/>
-          <line x1="306" y1="306" x2="341" y2="341" stroke="#C9960C" stroke-width="8" stroke-linecap="round"/>
-          <line x1="341" y1="59" x2="306" y2="94" stroke="#C9960C" stroke-width="8" stroke-linecap="round"/>
-          <line x1="94" y1="306" x2="59" y2="341" stroke="#C9960C" stroke-width="8" stroke-linecap="round"/>
+      <div class="hero-logo-bg">
+        <svg viewBox="0 0 600 760" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(300,380)">
+            <polygon points="0,-95 -14,-158 14,-158" fill="#F5A800"/>
+            <polygon points="36.5,-87 51,-150 79,-133" fill="#F5A800"/>
+            <polygon points="67,-67 107,-111 124,-82" fill="#F5A800"/>
+            <polygon points="87,-36.5 130,-51 151,-25" fill="#F5A800"/>
+            <polygon points="95,0 158,-14 158,14" fill="#F5A800"/>
+            <polygon points="87,36.5 130,51 151,25" fill="#F5A800"/>
+            <polygon points="67,67 107,111 124,82" fill="#F5A800"/>
+            <polygon points="36.5,87 51,150 79,133" fill="#F5A800"/>
+            <polygon points="0,95 -14,158 14,158" fill="#F5A800"/>
+            <polygon points="-36.5,87 -51,150 -79,133" fill="#F5A800"/>
+            <polygon points="-67,67 -107,111 -124,82" fill="#F5A800"/>
+            <polygon points="-87,36.5 -130,51 -151,25" fill="#F5A800"/>
+            <polygon points="-95,0 -158,-14 -158,14" fill="#F5A800"/>
+            <polygon points="-87,-36.5 -130,-51 -151,-25" fill="#F5A800"/>
+            <polygon points="-67,-67 -107,-111 -124,-82" fill="#F5A800"/>
+            <polygon points="-36.5,-87 -51,-150 -79,-133" fill="#F5A800"/>
+            <circle cx="0" cy="0" r="78" fill="#F5A800"/>
+            <circle cx="0" cy="0" r="56" fill="#FFF5D6"/>
+            <circle cx="0" cy="0" r="30" fill="#F5A800"/>
+          </g>
         </svg>
       </div>
       <div class="hero-badge">
@@ -721,43 +327,42 @@ footer {
   <div class="section-label reveal">O que fazemos</div>
   <h2 class="section-title reveal">Soluções completas<br>em energia solar</h2>
   <p class="section-sub reveal">Da consultoria à instalação — tudo em um só lugar, com suporte completo.</p>
-
   <div class="services-grid reveal">
     <div class="service-card">
       <span class="service-num">01</span>
-      <div class="service-icon">☀️</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div>
       <h3 class="service-title">Sistema Residencial</h3>
-      <p class="service-desc">Projetos personalizados para sua residência com placas de alta eficiência e inversor Huawei com IA integrada.</p>
+      <p class="service-desc">Projetos personalizados com placas de alta eficiência e inversor Huawei com IA integrada para sua casa.</p>
     </div>
     <div class="service-card">
       <span class="service-num">02</span>
-      <div class="service-icon">🏭</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
       <h3 class="service-title">Sistema Comercial</h3>
-      <p class="service-desc">Soluções para empresas, comércios e indústrias com maior retorno sobre o investimento e redução de custos operacionais.</p>
+      <p class="service-desc">Soluções para empresas e comércios com maior retorno sobre investimento e redução de custos operacionais.</p>
     </div>
     <div class="service-card">
       <span class="service-num">03</span>
-      <div class="service-icon">🔌</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/><path d="M9 7h1m4 0h1M9 11h6"/></svg></div>
       <h3 class="service-title">WallBox para EV</h3>
-      <p class="service-desc">Instalação de carregadores para veículos elétricos integrados ao seu sistema solar. Carregue seu carro com energia limpa.</p>
+      <p class="service-desc">Instalação de carregadores para veículos elétricos integrados ao sistema solar. Carregue com energia limpa.</p>
     </div>
     <div class="service-card">
       <span class="service-num">04</span>
-      <div class="service-icon">📊</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
       <h3 class="service-title">Monitoramento</h3>
-      <p class="service-desc">Acompanhe em tempo real a produção do seu sistema pelo app FusionSolar. Transparência total do seu investimento.</p>
+      <p class="service-desc">Acompanhe em tempo real a produção do sistema pelo app FusionSolar. Transparência total do investimento.</p>
     </div>
     <div class="service-card">
       <span class="service-num">05</span>
-      <div class="service-icon">📋</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
       <h3 class="service-title">Projeto e Homologação</h3>
-      <p class="service-desc">Toda a documentação, laudo elétrico e homologação junto à concessionária feitos por nós. Sem burocracia para você.</p>
+      <p class="service-desc">Toda documentação, laudo elétrico e homologação junto à concessionária. Sem burocracia para você.</p>
     </div>
     <div class="service-card">
       <span class="service-num">06</span>
-      <div class="service-icon">🛠️</div>
+      <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
       <h3 class="service-title">Manutenção</h3>
-      <p class="service-desc">Suporte técnico e manutenção preventiva para garantir máxima performance do seu sistema ao longo dos anos.</p>
+      <p class="service-desc">Suporte técnico e manutenção preventiva para máxima performance do sistema ao longo dos anos.</p>
     </div>
   </div>
 </section>
@@ -768,50 +373,48 @@ footer {
 <section id="simulador">
   <div class="section-label reveal">Calculadora de Economia</div>
   <h2 class="section-title reveal">Quanto você pode<br><em style="color:var(--gold-light);font-style:normal">economizar?</em></h2>
-  <p class="section-sub reveal">Simule agora e veja o retorno do seu investimento.</p>
-
+  <p class="section-sub reveal">Projeção com inflação energética de 8% ao ano — o retorno real do seu investimento.</p>
   <div class="simulator-layout">
     <div class="simulator-form reveal">
       <div class="form-group">
-        <label class="form-label">Valor médio da conta de luz (R$)</label>
+        <label class="form-label">Conta de luz atual (R$/mês)</label>
         <input type="number" class="form-input" id="conta" placeholder="Ex: 400" oninput="calcular()">
       </div>
       <div class="form-group">
         <label class="form-label">Tipo de instalação</label>
         <select class="form-select" id="tipo" onchange="calcular()">
-          <option value="1">Residencial</option>
-          <option value="1.1">Comercial</option>
+          <option value="residencial">Residencial</option>
+          <option value="comercial">Comercial</option>
         </select>
       </div>
       <div class="form-group">
         <label class="form-label">Tarifa de energia (R$/kWh)</label>
-        <input type="number" class="form-input" id="tarifa" placeholder="Ex: 0.85" value="0.85" oninput="calcular()">
+        <input type="number" class="form-input" id="tarifa" placeholder="0.85" value="0.85" step="0.01" oninput="calcular()">
       </div>
-      <a href="https://wa.me/5516992080152" target="_blank" class="btn-primary" style="width:100%;justify-content:center;margin-top:8px;">
-        Solicitar Proposta Gratuita ☀
+      <a href="https://wa.me/5516992080152" target="_blank" class="btn-primary" style="width:100%;justify-content:center;margin-top:4px;">
+        Solicitar Proposta Gratuita
       </a>
     </div>
-
     <div class="simulator-result">
       <div class="result-card highlight reveal">
-        <div class="result-label">Economia Mensal Estimada</div>
+        <div class="result-label">Economia no 1º Mês</div>
         <div class="result-value gold" id="economia-mensal">R$ —</div>
-        <div class="result-sub">até 90% da sua conta atual</div>
+        <div class="result-sub">até 90% da conta atual</div>
       </div>
       <div class="result-row">
         <div class="result-card reveal">
-          <div class="result-label">Economia Anual</div>
-          <div class="result-value" id="economia-anual" style="font-size:28px">R$ —</div>
+          <div class="result-label">Payback Estimado</div>
+          <div class="result-value" id="payback" style="font-size:26px">— anos</div>
         </div>
         <div class="result-card reveal">
-          <div class="result-label">Payback Estimado</div>
-          <div class="result-value" id="payback" style="font-size:28px">— anos</div>
+          <div class="result-label">Economia Ano 1</div>
+          <div class="result-value" id="economia-anual" style="font-size:26px">R$ —</div>
         </div>
       </div>
       <div class="result-card reveal">
-        <div class="result-label">Economia em 25 anos</div>
-        <div class="result-value gold" id="economia-total" style="font-size:32px">R$ —</div>
-        <div class="result-sub">vida útil estimada do sistema</div>
+        <div class="result-label">Economia Total em 25 anos (inflação 8% a.a.)</div>
+        <div class="result-value gold" id="economia-total" style="font-size:30px">R$ —</div>
+        <div class="result-sub" id="economia-sub">vida útil estimada do sistema</div>
       </div>
     </div>
   </div>
@@ -823,7 +426,6 @@ footer {
 <section id="depoimentos">
   <div class="section-label reveal">O que dizem nossos clientes</div>
   <h2 class="section-title reveal">Resultados reais,<br>clientes satisfeitos</h2>
-
   <div class="testimonials-grid">
     <div class="testimonial-card reveal">
       <div class="stars">★★★★★</div>
@@ -831,10 +433,7 @@ footer {
       <p class="testimonial-text">Minha conta caiu de R$ 680 para menos de R$ 80 por mês. O Victor foi muito atencioso durante todo o processo, desde o projeto até a homologação.</p>
       <div class="testimonial-author">
         <div class="author-avatar">M</div>
-        <div>
-          <span class="author-name">Marcos Oliveira</span>
-          <span class="author-city">São Carlos, SP — 7.32 kWp</span>
-        </div>
+        <div><span class="author-name">Marcos Oliveira</span><span class="author-city">São Carlos, SP — 7.32 kWp</span></div>
       </div>
     </div>
     <div class="testimonial-card reveal">
@@ -843,10 +442,7 @@ footer {
       <p class="testimonial-text">Instalação rápida e profissional. O sistema Huawei com monitoramento pelo app é incrível — vejo tudo em tempo real pelo celular.</p>
       <div class="testimonial-author">
         <div class="author-avatar">A</div>
-        <div>
-          <span class="author-name">Ana Paula Ferreira</span>
-          <span class="author-city">São Carlos, SP — 5.49 kWp</span>
-        </div>
+        <div><span class="author-name">Ana Paula Ferreira</span><span class="author-city">São Carlos, SP — 5.49 kWp</span></div>
       </div>
     </div>
     <div class="testimonial-card reveal">
@@ -855,10 +451,7 @@ footer {
       <p class="testimonial-text">Investimento que se pagou em menos de 4 anos. Hoje economizo mais de R$ 800 por mês no meu comércio. Recomendo sem hesitar.</p>
       <div class="testimonial-author">
         <div class="author-avatar">R</div>
-        <div>
-          <span class="author-name">Ricardo Santos</span>
-          <span class="author-city">Araraquara, SP — 12 kWp</span>
-        </div>
+        <div><span class="author-name">Ricardo Santos</span><span class="author-city">Araraquara, SP — 12 kWp</span></div>
       </div>
     </div>
   </div>
@@ -872,43 +465,33 @@ footer {
     <div class="contact-info">
       <div class="section-label reveal">Entre em Contato</div>
       <h2 class="section-title reveal">Pronto para começar<br>a <em style="color:var(--gold)">economizar?</em></h2>
-      <p class="section-sub reveal" style="margin-bottom:40px">Fale com a gente agora. Orçamento gratuito e sem compromisso. Atendemos São Carlos e região.</p>
-
+      <p class="section-sub reveal" style="margin-bottom:40px">Orçamento gratuito e sem compromisso. Atendemos São Carlos e região.</p>
       <div class="contact-item reveal">
-        <div class="contact-icon">📱</div>
-        <div>
-          <span class="contact-item-label">WhatsApp / Telefone</span>
-          <span class="contact-item-value">(16) 99208-0152</span>
-        </div>
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+        <div><span class="contact-item-label">WhatsApp / Telefone</span><span class="contact-item-value">(16) 99208-0152</span></div>
       </div>
-
       <div class="contact-item reveal">
-        <div class="contact-icon">📍</div>
-        <div>
-          <span class="contact-item-label">Região de Atendimento</span>
-          <span class="contact-item-value">São Carlos e Região, SP</span>
-        </div>
+        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><span class="contact-item-label">Região de Atendimento</span><span class="contact-item-value">São Carlos e Região, SP</span></div>
       </div>
-
       <a href="https://wa.me/5516992080152" target="_blank" class="whatsapp-btn reveal">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Chamar no WhatsApp
       </a>
     </div>
-
     <div class="contact-form reveal">
       <h3 style="font-family:'Playfair Display',serif;font-size:24px;margin-bottom:28px;color:var(--black)">Envie uma mensagem</h3>
       <div class="form-group">
         <label class="form-label">Seu nome</label>
-        <input type="text" class="form-input" placeholder="Nome completo">
+        <input type="text" class="form-input" id="f-nome" placeholder="Nome completo">
       </div>
       <div class="form-group">
         <label class="form-label">Telefone / WhatsApp</label>
-        <input type="tel" class="form-input" placeholder="(16) 99999-9999">
+        <input type="tel" class="form-input" id="f-tel" placeholder="(16) 99999-9999">
       </div>
       <div class="form-group">
         <label class="form-label">Valor da sua conta de luz</label>
-        <input type="text" class="form-input" placeholder="Ex: R$ 400/mês">
+        <input type="text" class="form-input" id="f-conta" placeholder="Ex: R$ 400/mês">
       </div>
       <button class="btn-primary" style="width:100%;justify-content:center;" onclick="enviarWhatsApp()">
         Solicitar Orçamento Gratuito →
@@ -920,19 +503,31 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <svg width="28" height="28" viewBox="0 0 38 38" fill="none">
-      <circle cx="19" cy="19" r="7" fill="#C9960C"/>
-      <circle cx="19" cy="19" r="4.5" fill="#F5C200"/>
-      <line x1="19" y1="2" x2="19" y2="8" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="19" y1="30" x2="19" y2="36" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="2" y1="19" x2="8" y2="19" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="30" y1="19" x2="36" y2="19" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="6.5" y1="6.5" x2="10.8" y2="10.8" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="27.2" y1="27.2" x2="31.5" y2="31.5" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="31.5" y1="6.5" x2="27.2" y2="10.8" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
-      <line x1="10.8" y1="27.2" x2="6.5" y2="31.5" stroke="#C9960C" stroke-width="2" stroke-linecap="round"/>
+    <svg viewBox="0 0 600 760" xmlns="http://www.w3.org/2000/svg" style="height:44px;width:auto">
+      <g transform="translate(300,270)">
+        <polygon points="0,-95 -14,-158 14,-158" fill="#F5A800"/>
+        <polygon points="36.5,-87 51,-150 79,-133" fill="#F5A800"/>
+        <polygon points="67,-67 107,-111 124,-82" fill="#F5A800"/>
+        <polygon points="87,-36.5 130,-51 151,-25" fill="#F5A800"/>
+        <polygon points="95,0 158,-14 158,14" fill="#F5A800"/>
+        <polygon points="87,36.5 130,51 151,25" fill="#F5A800"/>
+        <polygon points="67,67 107,111 124,82" fill="#F5A800"/>
+        <polygon points="36.5,87 51,150 79,133" fill="#F5A800"/>
+        <polygon points="0,95 -14,158 14,158" fill="#F5A800"/>
+        <polygon points="-36.5,87 -51,150 -79,133" fill="#F5A800"/>
+        <polygon points="-67,67 -107,111 -124,82" fill="#F5A800"/>
+        <polygon points="-87,36.5 -130,51 -151,25" fill="#F5A800"/>
+        <polygon points="-95,0 -158,-14 -158,14" fill="#F5A800"/>
+        <polygon points="-87,-36.5 -130,-51 -151,-25" fill="#F5A800"/>
+        <polygon points="-67,-67 -107,-111 -124,-82" fill="#F5A800"/>
+        <polygon points="-36.5,-87 -51,-150 -79,-133" fill="#F5A800"/>
+        <circle cx="0" cy="0" r="78" fill="#F5A800"/>
+        <circle cx="0" cy="0" r="56" fill="#111111"/>
+        <circle cx="0" cy="0" r="30" fill="#F5A800"/>
+      </g>
+      <text x="300" y="524" text-anchor="middle" font-family="Georgia,serif" font-size="74" font-weight="700" letter-spacing="10" fill="#ffffff">GAVA</text>
+      <text x="300" y="580" text-anchor="middle" font-family="Georgia,serif" font-size="34" font-weight="400" letter-spacing="22" fill="#F5A800">SOLAR</text>
     </svg>
-    <div class="footer-logo-text">GAVA <span>SOLAR</span></div>
   </div>
   <p class="footer-text">© 2025 Gava Solar · São Carlos e Região, SP<br>Instalação certificada</p>
   <ul class="footer-links">
@@ -947,38 +542,53 @@ footer {
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-    }
+    if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
   });
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
 
-// Simulador
+// Simulador com inflação energética 8% a.a.
 function calcular() {
   const conta = parseFloat(document.getElementById('conta').value) || 0;
   const tarifa = parseFloat(document.getElementById('tarifa').value) || 0.85;
-
   if (conta <= 0) return;
 
-  const economia = conta * 0.88;
-  const anual = economia * 12;
-  const sistemaKwp = (conta / tarifa / 30 / 4.5).toFixed(2);
-  const investimento = sistemaKwp * 4200;
-  const payback = (investimento / anual).toFixed(1);
-  const total25 = anual * 25;
+  const reducao = 0.88;
+  const inflacao = 0.08;
+  const anos = 25;
 
-  document.getElementById('economia-mensal').textContent = 'R$ ' + economia.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-  document.getElementById('economia-anual').textContent = 'R$ ' + anual.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const kwp = conta / tarifa / 30 / 4.5;
+  const investimento = kwp * 4200;
+  const economiaM1 = conta * reducao;
+  const economiaA1 = economiaM1 * 12;
+
+  // Payback com inflação composta
+  let acumulado = 0;
+  let payback = anos;
+  for (let a = 1; a <= anos; a++) {
+    acumulado += economiaA1 * Math.pow(1 + inflacao, a - 1);
+    if (acumulado >= investimento && payback === anos) payback = a;
+  }
+
+  // Total 25 anos com inflação
+  let total25 = 0;
+  for (let a = 1; a <= anos; a++) total25 += economiaA1 * Math.pow(1 + inflacao, a - 1);
+
+  const fmt = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+  const mult = (total25 / investimento).toFixed(1);
+
+  document.getElementById('economia-mensal').textContent = fmt(economiaM1);
+  document.getElementById('economia-anual').textContent = fmt(economiaA1);
   document.getElementById('payback').textContent = payback + ' anos';
-  document.getElementById('economia-total').textContent = 'R$ ' + total25.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  document.getElementById('economia-total').textContent = fmt(total25);
+  document.getElementById('economia-sub').textContent = mult + 'x o valor investido ao longo de 25 anos';
 }
 
 // WhatsApp form
 function enviarWhatsApp() {
-  const nome = document.querySelector('#contato input[type="text"]').value;
-  const tel = document.querySelector('#contato input[type="tel"]').value;
-  const conta = document.querySelector('#contato input[placeholder*="conta"]').value;
+  const nome = document.getElementById('f-nome').value;
+  const tel = document.getElementById('f-tel').value;
+  const conta = document.getElementById('f-conta').value;
   const msg = `Olá! Me chamo ${nome || 'cliente'}, telefone ${tel || 'não informado'}. Tenho interesse em energia solar, minha conta é ${conta || 'não informada'}. Gostaria de um orçamento!`;
   window.open('https://wa.me/5516992080152?text=' + encodeURIComponent(msg), '_blank');
 }
